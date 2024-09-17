@@ -1,18 +1,10 @@
 import React from "react";
 import { Sidebar } from "flowbite-react";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
+import { HiArrowSmRight, HiChartPie, HiUser } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 
 export default function DashboardSidebar() {
-    const path = useLocation().pathname
+  const path = useLocation().pathname;
 
   return (
     <Sidebar aria-label="Default sidebar example" className=" border-r-4 h-dvh">
