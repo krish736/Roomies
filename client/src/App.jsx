@@ -9,12 +9,14 @@ import Signup from "./pages/Signup.jsx";
 import Header from "./components/Header.jsx";
 import Error from "./pages/Error.jsx";
 import Contact from "./pages/Contact.jsx";
+import FooterComponent from "./components/FooterComponent.jsx";
 
-function Layout({ children, showHeader }) {
+function Layout({ children, showHeaderFooter }) {
   return (
     <>
-      {showHeader && <Header />}
-      <main>{children}</main>
+      {showHeaderFooter && <Header />}
+      <main className="min-h-svh">{children}</main>
+      {showHeaderFooter && <FooterComponent />}
     </>
   );
 }
@@ -26,7 +28,7 @@ export default function App() {
         <Route
           path="/"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <Home />
             </Layout>
           }
@@ -34,7 +36,7 @@ export default function App() {
         <Route
           path="/about"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <About />
             </Layout>
           }
@@ -42,7 +44,7 @@ export default function App() {
         <Route
           path="/contact"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <Contact />
             </Layout>
           }
@@ -50,7 +52,7 @@ export default function App() {
         <Route
           path="/dashboard"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <Dashboard />
             </Layout>
           }
@@ -58,7 +60,7 @@ export default function App() {
         <Route
           path="/rooms"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <Rooms/>
             </Layout>
           }
@@ -66,7 +68,7 @@ export default function App() {
         <Route
           path="/signin"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <Signin />
             </Layout>
           }
@@ -74,7 +76,7 @@ export default function App() {
         <Route
           path="/signup"
           element={
-            <Layout showHeader={true}>
+            <Layout showHeaderFooter={true}>
               <Signup />
             </Layout>
           }
@@ -82,7 +84,7 @@ export default function App() {
         <Route
           path="*"
           element={
-            <Layout showHeader={false}>
+            <Layout showHeaderFooter={false}>
               <Error />
             </Layout>
           }

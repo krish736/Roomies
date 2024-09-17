@@ -13,10 +13,12 @@ import {
 } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import { FaMoon } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const path = useLocation().pathname;
-  const signedin = true;
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
     <Navbar fluid rounded className=" border-b-4">
       <NavbarBrand as={"div"}>
@@ -33,16 +35,16 @@ export default function Header() {
           <FaMoon />
         </Button>
 
-        {signedin ? (
+        {currentUser ? (
           <Dropdown
             arrowIcon={false}
             inline
             label={<Avatar alt="User settings" rounded />}
           >
             <DropdownHeader>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+              <span className="block text-sm text-center">{currentUser.username}</span>
+              <span className="block truncate text-sm font-medium text-center">
+                {currentUser.email}
               </span>
             </DropdownHeader>
             <DropdownItem>
@@ -53,7 +55,7 @@ export default function Header() {
           </Dropdown>
         ) : (
           <Button color="grey" className=" border-2">
-            Sign in
+            <Link to="/signin">Sign in</Link>
           </Button>
         )}
         <NavbarToggle />
