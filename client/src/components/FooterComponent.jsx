@@ -1,18 +1,14 @@
-import React from 'react'
-import {
-  Footer,
-  FooterCopyright,
-  FooterLink,
-  FooterLinkGroup,
-} from "flowbite-react";
+import React from "react";
+import { Footer } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 export default function FooterComponent() {
   return (
-    <Footer container>
+    <Footer container className="border-t-4">
       <Footer.Copyright href="/" by="Roomies" year={2024} />
-      <Footer.LinkGroup>
-        <Footer.Link href="/about">About</Footer.Link>
-        <Footer.Link href="/contact">Contact</Footer.Link>
+      <Footer.LinkGroup className="flex gap-3">
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </Footer.LinkGroup>
     </Footer>
   );

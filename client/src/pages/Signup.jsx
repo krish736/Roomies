@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Alert, Spinner } from "flowbite-react";
+import GoogleAuth from "../components/GoogleAuth";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function Signup() {
       .then(function (response) {
         const data = response.config.data;
         setLoading(false);
-        navigate('/signin')
+        navigate("/signin");
       })
       .catch(function (error) {
         setErrorMessage(error.response.data.errorMessage);
@@ -92,9 +93,7 @@ export default function Signup() {
           >
             {loading ? <Spinner size="sm" /> : "Sign Up"}
           </button>
-          <button className="mt-1 p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-            Sign Up with google
-          </button>
+          <GoogleAuth />
         </form>
         <div className="mt-4 text-center">
           <span className="text-sm">

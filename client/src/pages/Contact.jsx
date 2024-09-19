@@ -9,7 +9,7 @@ export default function Contact() {
     },
     kartik: {
       name: "Kartik Pawar",
-      git: "#",
+      git: "https://github.com/kartikpawar10",
     },
     krish: {
       name: "Krishnakant Dave",

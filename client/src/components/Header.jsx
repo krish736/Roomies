@@ -12,12 +12,19 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
-import { FaMoon } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { toogleTheme } from "../store/slices/themeSlice";
 
 export default function Header() {
   const path = useLocation().pathname;
   const { currentUser } = useSelector((state) => state.user);
+  const { theme } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
+
+  const handleTheme = () => {
+    dispatch(toogleTheme());
+  };
 
   return (
     <Navbar fluid rounded className=" border-b-4">
@@ -31,27 +38,42 @@ export default function Header() {
       </NavbarBrand>
 
       <div className="flex md:order-2">
-        <Button className=" mr-3 w-12 h-10 border-4" color="grey" pill>
-          <FaMoon />
+        <Button
+          className=" mr-3 w-12 h-10 border-4"
+          color="grey"
+          pill
+          onClick={handleTheme}
+        >
+          {theme === "light" ? <FaMoon /> : <FaSun />}
         </Button>
 
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
             inline
-            label={<Avatar alt="User settings" rounded />}
+            label={
+              <Avatar
+                alt="User settings"
+                img={currentUser.profilePicture}
+                rounded
+              />
+            }
           >
             <DropdownHeader>
-              <span className="block text-sm text-center">{currentUser.username}</span>
+              <span className="block text-sm text-center">
+                {currentUser.username}
+              </span>
               <span className="block truncate text-sm font-medium text-center">
                 {currentUser.email}
               </span>
             </DropdownHeader>
             <DropdownItem>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard/profile">Dashboard</Link>
             </DropdownItem>
             <DropdownDivider />
-            <DropdownItem>Sign out</DropdownItem>
+            <Link to="/dashboard/signout">
+              <DropdownItem>Sign out</DropdownItem>
+            </Link>
           </Dropdown>
         ) : (
           <Button color="grey" className=" border-2">

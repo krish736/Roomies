@@ -10,6 +10,11 @@ import Header from "./components/Header.jsx";
 import Error from "./pages/Error.jsx";
 import Contact from "./pages/Contact.jsx";
 import FooterComponent from "./components/FooterComponent.jsx";
+import DashboardProfile from "./components/DashboardProfile.jsx";
+import DashboardUpdate from "./components/DashboardUpdate.jsx";
+import Signout from "./components/Signout.jsx";
+import DashboardUsers from "./components/DashboardUsers.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 function Layout({ children, showHeaderFooter }) {
   return (
@@ -49,19 +54,26 @@ export default function App() {
             </Layout>
           }
         />
-        <Route
-          path="/dashboard"
-          element={
-            <Layout showHeaderFooter={true}>
-              <Dashboard />
-            </Layout>
-          }
-        />
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/dashboard"
+            element={
+              <Layout showHeaderFooter={true}>
+                <Dashboard />
+              </Layout>
+            }
+          >
+            <Route path="profile" element={<DashboardProfile />} />
+            <Route path="update" element={<DashboardUpdate />} />
+            <Route path="signout" element={<Signout />} />
+            <Route path="users" element={<DashboardUsers />} />
+          </Route>
+        </Route>
         <Route
           path="/rooms"
           element={
             <Layout showHeaderFooter={true}>
-              <Rooms/>
+              <Rooms />
             </Layout>
           }
         />

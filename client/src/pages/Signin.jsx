@@ -8,14 +8,15 @@ import {
   signInFailure,
 } from "../store/slices/userSlice.js";
 import { useSelector, useDispatch } from "react-redux";
+import GoogleAuth from "../components/GoogleAuth.jsx";
 
 export default function Signin() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
 
-  const { loading, error} = useSelector((state) => state.user);
+  const { loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
@@ -75,9 +76,7 @@ export default function Signin() {
           <button className="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             {loading ? <Spinner size="sm" /> : "Sign In"}
           </button>
-          <button className="mt-1 p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-            Sign In with google
-          </button>
+          <GoogleAuth />
         </form>
         <div className="mt-4 text-center  ">
           <span className="text-sm">
