@@ -25,7 +25,7 @@ export default function DashboardSidebar() {
               Update
             </Sidebar.Item>
           </Link>
-          {currentUser.isAdmin  && (
+          {currentUser.isAdmin && (
             <Link to="/dashboard/users">
               <Sidebar.Item icon={HiUser} as="div">
                 Users
@@ -35,6 +35,11 @@ export default function DashboardSidebar() {
           <Link to="/dashboard/signout">
             <Sidebar.Item icon={HiArrowSmRight} as="div">
               Sign Out
+            </Sidebar.Item>
+          </Link>
+          <Link to="/dashboard/delete">
+            <Sidebar.Item icon={HiArrowSmRight} as="div">
+              Delete
             </Sidebar.Item>
           </Link>
         </Sidebar.ItemGroup>

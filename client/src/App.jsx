@@ -15,6 +15,7 @@ import DashboardUpdate from "./components/DashboardUpdate.jsx";
 import Signout from "./components/Signout.jsx";
 import DashboardUsers from "./components/DashboardUsers.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import DashboardDelete from "./components/DashboardDelete.jsx";
 
 function Layout({ children, showHeaderFooter }) {
   return (
@@ -66,6 +67,7 @@ export default function App() {
             <Route path="profile" element={<DashboardProfile />} />
             <Route path="update" element={<DashboardUpdate />} />
             <Route path="signout" element={<Signout />} />
+            <Route path="delete" element={<DashboardDelete />} />
             <Route path="users" element={<DashboardUsers />} />
           </Route>
         </Route>

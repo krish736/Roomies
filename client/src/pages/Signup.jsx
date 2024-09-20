@@ -56,7 +56,7 @@ export default function Signup() {
             <input
               type="text"
               name="username"
-              className="p-2 border rounded"
+              className="p-2 border rounded text-gray-900"
               placeholder="Enter your username"
               required
               id="username"
@@ -68,7 +68,7 @@ export default function Signup() {
             <input
               type="email"
               name="email"
-              className="p-2 border rounded"
+              className="p-2 border rounded text-gray-900"
               placeholder="Enter your email"
               required
               id="email"
@@ -80,7 +80,7 @@ export default function Signup() {
             <input
               type="password"
               name="password"
-              className="p-2 border rounded"
+              className="p-2 border rounded text-gray-900"
               placeholder="Enter your password"
               required
               id="password"

@@ -22,8 +22,7 @@ export default function GoogleAuth() {
           googlePhotoUrl: resultsFromGoogle.user.photoURL,
         })
         .then(function (response) {
-            dispatch(signInSuccess(response.data));
-          console.log(response);
+          dispatch(signInSuccess(response.data));
           navigate("/");
         })
         .catch(function (error) {

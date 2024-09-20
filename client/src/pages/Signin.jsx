@@ -54,7 +54,7 @@ export default function Signin() {
             <input
               type="email"
               name="email"
-              className="p-2 border rounded"
+              className="p-2 border rounded text-gray-900"
               placeholder="Enter your email"
               required
               id="email"
@@ -66,7 +66,7 @@ export default function Signin() {
             <input
               type="password"
               name="password"
-              className="p-2 border rounded"
+              className="p-2 border rounded text-gray-900"
               placeholder="Enter your password"
               required
               id="password"

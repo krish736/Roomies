@@ -41,6 +41,23 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    updateImageStart: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    updateImageSuccess: (state) => {
+      state.loading = false;
+      state.error = null;
+    },
+    updateImageFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    deleteUser:(state)=>{
+      state.loading = false;
+      state.currentUser = null;
+      state.error = null;
+    }
   },
 });
 
@@ -52,6 +69,10 @@ export const {
   updateStart,
   updateSuccess,
   updateFailure,
+  updateImageStart,
+  updateImageSuccess,
+  updateImageFailure,
+  deleteUser
 } = userSlice.actions;
 
 export default userSlice.reducer;

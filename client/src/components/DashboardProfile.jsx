@@ -9,7 +9,7 @@ export default function DashboardProfile() {
       <div className="flex flex-col items-center">
         <img
           src={currentUser.profilePicture}
-          className=" rounded-full"
+          className=" h-24 w-24 mx-auto rounded-full mb-3 cursor-pointer object-cover object-center"
         />
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
           {currentUser.username}
