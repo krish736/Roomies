@@ -51,11 +51,13 @@ export default function Header() {
           <Dropdown
             arrowIcon={false}
             inline
+            className=""
             label={
               <Avatar
                 alt="User settings"
                 img={currentUser.profilePicture}
                 rounded
+                className="w-10 h-10 mx-auto rounded-full cursor-pointer object-cover"
               />
             }
           >
