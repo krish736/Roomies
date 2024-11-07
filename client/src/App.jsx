@@ -18,92 +18,92 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import DashboardDelete from "./components/DashboardDelete.jsx";
 
 function Layout({ children, showHeaderFooter }) {
-  return (
-    <>
-      {showHeaderFooter && <Header />}
-      <main className="min-h-svh">{children}</main>
-      {showHeaderFooter && <FooterComponent />}
-    </>
-  );
+    return (
+        <>
+            {showHeaderFooter && <Header />}
+            <main className="min-h-svh">{children}</main>
+            {showHeaderFooter && <FooterComponent />}
+        </>
+    );
 }
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout showHeaderFooter={true}>
-              <Home />
-            </Layout>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <Layout showHeaderFooter={true}>
-              <About />
-            </Layout>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <Layout showHeaderFooter={true}>
-              <Contact />
-            </Layout>
-          }
-        />
-        <Route element={<PrivateRoute />}>
-          <Route
-            path="/dashboard"
-            element={
-              <Layout showHeaderFooter={true}>
-                <Dashboard />
-              </Layout>
-            }
-          >
-            <Route path="profile" element={<DashboardProfile />} />
-            <Route path="update" element={<DashboardUpdate />} />
-            <Route path="signout" element={<Signout />} />
-            <Route path="delete" element={<DashboardDelete />} />
-            <Route path="users" element={<DashboardUsers />} />
-          </Route>
-        </Route>
-        <Route
-          path="/rooms"
-          element={
-            <Layout showHeaderFooter={true}>
-              <Rooms />
-            </Layout>
-          }
-        />
-        <Route
-          path="/signin"
-          element={
-            <Layout showHeaderFooter={true}>
-              <Signin />
-            </Layout>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <Layout showHeaderFooter={true}>
-              <Signup />
-            </Layout>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Layout showHeaderFooter={false}>
-              <Error />
-            </Layout>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <Layout showHeaderFooter={true}>
+                            <Home />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/about"
+                    element={
+                        <Layout showHeaderFooter={true}>
+                            <About />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/contact"
+                    element={
+                        <Layout showHeaderFooter={true}>
+                            <Contact />
+                        </Layout>
+                    }
+                />
+                <Route element={<PrivateRoute />}>
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <Layout showHeaderFooter={true}>
+                                <Dashboard />
+                            </Layout>
+                        }
+                    >
+                        <Route path="profile" element={<DashboardProfile />} />
+                        <Route path="update" element={<DashboardUpdate />} />
+                        <Route path="signout" element={<Signout />} />
+                        <Route path="delete" element={<DashboardDelete />} />
+                        <Route path="users" element={<DashboardUsers />} />
+                    </Route>
+                </Route>
+                <Route
+                    path="/rooms"
+                    element={
+                        <Layout showHeaderFooter={true}>
+                            <Rooms />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/signin"
+                    element={
+                        <Layout showHeaderFooter={true}>
+                            <Signin />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/signup"
+                    element={
+                        <Layout showHeaderFooter={true}>
+                            <Signup />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="*"
+                    element={
+                        <Layout showHeaderFooter={false}>
+                            <Error />
+                        </Layout>
+                    }
+                />
+            </Routes>
+        </BrowserRouter>
+    );
 }
