@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion";
 import { UpdateFollower } from "react-mouse-follower";
 import { useSelector } from "react-redux";
@@ -103,7 +104,8 @@ const Home = () => {
             },
         },
     };
-
+    const navigate = useNavigate()
+    const handleCLick = () => navigate('/rooms')
     return (
         <section className="text-white bg-brandDark">
             <div className="container min-h-[700px] grid grid-cols-1 md:grid-cols-2">
@@ -176,6 +178,7 @@ const Home = () => {
                                             : "whitesmoke",
                                 }}
                                 className="px-4 py-2 inline-block max-w-max rounded-sm"
+                                onClick={handleCLick}
                             >
                                 Find a Friend
                             </motion.button>
